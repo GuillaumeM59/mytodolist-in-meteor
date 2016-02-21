@@ -34,7 +34,9 @@ Template.body.events({
 
       text: text,
 
-      createdAt: new Date() // current time
+      createdAt: new Date(), // current time
+      owner: Meteor.userId(),           // _id of logged in user
+      username: Meteor.user().username  // username of logged in user
 
     });
 
@@ -68,6 +70,14 @@ Template.task.events({
     Tasks.remove(this._id);
 
   }
+
+});
+
+// LOGIN template
+
+Accounts.ui.config({
+
+  passwordSignupFields: "USERNAME_ONLY"
 
 });
 
