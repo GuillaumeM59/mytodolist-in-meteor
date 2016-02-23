@@ -19,8 +19,11 @@ body {
   font-size: 14px;
 }
 
+.inputtxt{
+  display: inline;
+}
 .container {
-  max-width: 80%;
+  max-width: 100%;
   margin: 0 auto;
   min-height: 100%;
   background: white;
@@ -35,6 +38,7 @@ header {
 
 #login-buttons {
   display: block;
+  float: right;
 }
 
 h1 {
@@ -49,6 +53,7 @@ form {
   margin-top: 10px;
   margin-bottom: -10px;
   position: relative;
+  width: 100%;
 }
 
 .new-task input {

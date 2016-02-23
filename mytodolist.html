@@ -16,12 +16,12 @@
 {{> loginButtons}}
 
  {{#if currentUser}}
-    <form class="new-tache">
+    <form class="new-tache input-group">
 
-  <input type="text" name="text" placeholder="Ecrire ici la nouvelle tâche" />
+
   <!-- <input type="date" name="deadline" placeholder="Devra être achevée le" /> -->
     {{> deadlineselect}}
-  <input type="submit" name="ajoutache" value="Ajouter"/>
+
 
 </form>
 {{/if}}
@@ -76,7 +76,9 @@
 
 
 
-    <span class="text"><strong>{{username}}</strong> - {{text}} - pour le {{deadline}}</span>
+    <h3 class="text text-center"><strong>{{text}}</strong></h3>
+    <p class="tache text-center"><strong>{{username}}</strong></p>
+    <p class="deadl text-center">pour le {{deadline}}</p>
 
   </div>
 
@@ -85,7 +87,9 @@
 
 <template name="deadlineselect">
   <div class="input-group datetimepicker">
+    <input type="text" name="text" placeholder="Ecrire ici la nouvelle tâche"/>
     <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
     <input class="set-due-date form-control" name="deadline" placeholder="Devra être achevée le" type="text"/>
   </div>
+    <input type="submit" name="ajoutache" value="Ajouter"/>
 </template>
