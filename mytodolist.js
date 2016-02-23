@@ -14,6 +14,9 @@ if (Meteor.isServer) {
 if (Meteor.isClient) {
   // This code only runs on the client
   Meteor.subscribe("taches");
+  Template.deadlineselect.onRendered(function() {
+    this.$('.datetimepicker').datetimepicker();
+});
 
   Template.body.helpers({
     taches: function () {
@@ -31,8 +34,8 @@ if (Meteor.isClient) {
         },
     incompleteCount: function () {
           return Taches.find({checked: {$ne: true}}).count();
-        }
-    });
+        },
+  });
 
   // Event on form to update DB
   Template.body.events({

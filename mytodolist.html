@@ -1,5 +1,5 @@
 <head>
-<title>Todo List</title>
+<title>Liste de choses à faire</title>
 
 </head>
 
@@ -11,7 +11,7 @@
 
   <header>
 
-    <h1>Todo List</h1>
+    <h1>Liste de choses à faire</h1>
 
 {{> loginButtons}}
 
@@ -19,7 +19,8 @@
     <form class="new-tache">
 
   <input type="text" name="text" placeholder="Ecrire ici la nouvelle tâche" />
-  <input type="date" name="deadline" placeholder="Devra être achevée le" />
+  <!-- <input type="date" name="deadline" placeholder="Devra être achevée le" /> -->
+    {{> deadlineselect}}
   <input type="submit" name="ajoutache" value="Ajouter"/>
 
 </form>
@@ -28,7 +29,7 @@
 
 
 
-  <ul>
+  <div class="row">
 
     {{#each taches}}
 
@@ -36,8 +37,9 @@
 
     {{/each}}
 
-  </ul>
 
+
+  </div>
 </div>
 
 </body>
@@ -46,7 +48,7 @@
 
 <template name="tache">
 
-  <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
+  <div class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}} col-xs-12 col-sm-6 col-md-4 col-lg-3">
 
     <button class="delete">&times;</button>
 
@@ -76,6 +78,14 @@
 
     <span class="text"><strong>{{username}}</strong> - {{text}} - pour le {{deadline}}</span>
 
-  </li>
+  </div>
 
+</template>
+
+
+<template name="deadlineselect">
+  <div class="input-group datetimepicker">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+    <input class="set-due-date form-control" name="deadline" placeholder="Devra être achevée le" type="text"/>
+  </div>
 </template>
